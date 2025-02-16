@@ -1,0 +1,10 @@
+; 9) Método de ordenação (quicksort)
+
+(define (quicksort lst)
+  (if (null? lst)
+      '()
+      (let ((pivot (car lst))
+            (rest (cdr lst)))
+        (append (quicksort (filter (lambda (x) (< x pivot)) rest))
+                (list pivot)
+                (quicksort (filter (lambda (x) (>= x pivot)) rest))))))
